@@ -3,11 +3,23 @@
 Android-приложение под БРАТИКА: прозрачные домашние виджеты «часы + погода» в духе
 Transparent Clock & Weather, но без трекеров, рекламы и лишних разрешений.
 
+Репозиторий: https://github.com/rioorob-hash2/ClockWeather-Android
+
+## Скриншоты
+
+| Рабочий стол | Виджет 4×3 | Экран погоды |
+|---|---|---|
+| ![Виджеты](docs/screenshots/01_widgets_home.jpg) | ![4×3](docs/screenshots/07_widget_4x3.jpg) | ![Погода](docs/screenshots/08_weather_screen.jpg) |
+
+| Настройки | Уведомление |
+|---|---|
+| ![Настройки](docs/screenshots/02_settings_top.jpg) | ![Уведомление](docs/screenshots/04_notification.jpg) |
+
 - Пакет: `com.bratik.clockweather`
 - minSdk 32 / targetSdk 36 / compileSdk 35, Kotlin 2.0.21, AGP 8.7.3
 - Погода: Open-Meteo (без ключа), геокодер Open-Meteo
 - Сборка: `powershell -ExecutionPolicy Bypass -File tools/run.ps1 apk` (и `test`)
-- APK: `app/build/outputs/apk/prod/app-prod.apk`, копия — `dist/ClockWeather-1.0.apk`
+- APK: `app/build/outputs/apk/prod/app-prod.apk` (в git не хранится — см. Releases)
 
 ## Что внутри
 
