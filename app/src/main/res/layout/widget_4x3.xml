@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 4x3: часы + текущая погода сверху, полоса прогноза на 5 дней снизу.
+     Полоса — ImageView с готовым Bitmap (см. ForecastStrip), поэтому без весов. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/widget_bg" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="16dp"
+        android:paddingEnd="14dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_light"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:shadowColor="#80000000"
+            android:shadowDx="1"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:text="Киев"
+            android:textColor="@color/text_secondary"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/city"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_thin"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:shadowColor="#80000000"
+            android:shadowDx="1"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:text="20:57"
+            android:textColor="@color/text_primary"
+            android:textSize="62sp" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/time"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_light"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:shadowColor="#80000000"
+            android:shadowDx="1"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:text="сб, 14 ноября"
+            android:textColor="@color/text_secondary"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/today_pop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/date"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_regular"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:shadowColor="#80000000"
+            android:shadowDx="1"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:text="Осадки сегодня 53%"
+            android:textColor="@color/text_secondary"
+            android:textSize="10sp" />
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:id="@+id/temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/icon"
+            android:layout_alignParentEnd="true"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_light"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:shadowColor="#80000000"
+            android:shadowDx="1"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:text="4°"
+            android:textColor="@color/text_primary"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/minmax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/temp"
+            android:layout_alignParentEnd="true"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_light"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:shadowColor="#80000000"
+            android:shadowDx="1"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:text="6° / 2°"
+            android:textColor="@color/text_secondary"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:maxWidth="160dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/minmax"
+            android:layout_marginTop="1dp"
+            android:layout_alignParentEnd="true"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_regular"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:shadowColor="#80000000"
+            android:shadowDx="1"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:text="Переменная облачность"
+            android:textColor="@color/text_secondary"
+            android:textSize="9sp" />
+
+        <ImageView
+            android:id="@+id/forecast_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@id/forecast"
+            android:layout_marginBottom="6dp"
+            android:background="#33FFFFFF"
+            android:contentDescription="@null"
+            android:scaleType="fitXY" />
+
+        <ImageView
+            android:id="@+id/forecast"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:contentDescription="@null"
+            android:scaleType="fitXY" />
+    </RelativeLayout>
+</FrameLayout>

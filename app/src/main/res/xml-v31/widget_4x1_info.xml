@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- API 31+: те же параметры + targetCellWidth/targetCellHeight. -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="320dp"
+    android:minHeight="40dp"
+    android:minResizeWidth="320dp"
+    android:minResizeHeight="40dp"
+    android:targetCellWidth="4"
+    android:targetCellHeight="1"
+    android:updatePeriodMillis="1800000"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen"
+    android:widgetFeatures="configuration_optional|reconfigurable"
+    android:previewImage="@drawable/widget_preview_4x1"
+    android:description="@string/widget_4x1_name"
+    android:initialLayout="@layout/widget_4x1"
+    android:configure="com.bratik.clockweather.widgets.WidgetConfigActivity" />

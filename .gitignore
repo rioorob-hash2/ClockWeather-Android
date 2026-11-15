@@ -1,0 +1,30 @@
+# Gradle / Android
+.gradle/
+.gradle-home/
+build/
+*/build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Рабочие каталоги сборки в песочнице
+.tmp/
+.tmp2/
+
+# Артефакты: APK не храним в git — он прикладывается в Releases
+dist/
+*.apk
+*.apk.bin
+
+# Подпись: ключи никогда не публикуем
+keystore.jks
+keystore.properties
+*.jks
+*.keystore
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+Thumbs.db

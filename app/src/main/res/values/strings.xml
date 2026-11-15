@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Прозрачные часы</string>
+
+    <string name="widget_2x1_name">Часы и погода 2×1</string>
+    <string name="widget_4x1_name">Часы и погода 4×1</string>
+    <string name="widget_4x2_name">Часы и погода 4×2</string>
+    <string name="widget_4x3_name">Часы и прогноз на 5 дней</string>
+
+    <string name="channel_weather">Предупреждения о погоде</string>
+
+    <string name="settings_title">Настройки</string>
+    <string name="label_city">Город</string>
+    <string name="label_units">Температура</string>
+    <string name="label_interval">Обновлять погоду</string>
+    <string name="label_transparency">Непрозрачность подложки</string>
+    <string name="label_sensors">Батарея / RAM / устройство (4×2)</string>
+    <string name="label_alerts">Уведомления о дожде и снеге</string>
+    <string name="label_rain_threshold">Порог дождя, %</string>
+    <string name="label_snow_threshold">Порог снегопада, мм/ч</string>
+    <string name="label_snow_prob">Порог снега при t≤0, %</string>
+    <string name="label_quiet">Тихие часы</string>
+    <string name="label_antispam">Антиспам, часы</string>
+    <string name="action_refresh">Обновить сейчас</string>
+    <string name="action_search_city">Найти город</string>
+    <string name="hint_city_search">Например: Киев</string>
+    <string name="hint_celsius">°C</string>
+    <string name="hint_fahrenheit">°F</string>
+    <string name="hint_minutes_30">30 минут</string>
+    <string name="hint_hours_3">3 часа</string>
+    <string name="updated_prefix">Обновлено:</string>
+    <string name="no_data">Нет данных — нажмите «Обновить сейчас»</string>
+    <string name="city_not_found">Город не найден</string>
+    <string name="network_error">Не удалось получить погоду</string>
+
+    <!-- Экран первого добавления виджета -->
+    <string name="widget_config_title">Виджет</string>
+    <string name="widget_config_searching">Ищем город…</string>
+    <string name="action_ok">Готово</string>
+    <string name="action_cancel">Отмена</string>
+</resources>

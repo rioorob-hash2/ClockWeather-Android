@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- циферблат -->
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="4"
+        android:fillColor="#00000000"
+        android:pathData="M54,30a24,24 0 1,0 0.1,0 z" />
+    <!-- часовая -->
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:pathData="M54,54 L54,40" />
+    <!-- минутная -->
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:pathData="M54,54 L66,60" />
+    <!-- солнце -->
+    <path
+        android:fillColor="#FFFFC94D"
+        android:pathData="M78,24m-7,0a7,7 0 1,0 14,0a7,7 0 1,0 -14,0" />
+</vector>

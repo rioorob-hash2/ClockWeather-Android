@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Подложка виджета: скруглённый прямоугольник. Цвет уже полупрозрачный,
+     рантайм дополнительно крутит alpha через setFloat(bg, "setAlpha", a). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/widget_scrim" />
+    <corners android:radius="20dp" />
+</shape>
