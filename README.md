@@ -11,9 +11,9 @@ Transparent Clock & Weather, но без трекеров, рекламы и л�
 |---|---|---|
 | ![Виджеты](docs/screenshots/01_widgets_home.jpg) | ![4×3](docs/screenshots/07_widget_4x3.jpg) | ![Погода](docs/screenshots/08_weather_screen.jpg) |
 
-| Настройки | Уведомление |
-|---|---|
-| ![Настройки](docs/screenshots/02_settings_top.jpg) | ![Уведомление](docs/screenshots/04_notification.jpg) |
+| Настройки | Уведомление | Обновления |
+|---|---|---|
+| ![Настройки](docs/screenshots/02_settings_top.jpg) | ![Уведомление](docs/screenshots/04_notification.jpg) | ![Обновления](docs/screenshots/10_updates.jpg) |
 
 - Пакет: `com.bratik.clockweather`
 - minSdk 32 / targetSdk 36 / compileSdk 35, Kotlin 2.0.21, AGP 8.7.3
