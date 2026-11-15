@@ -3,8 +3,11 @@ package com.bratik.clockweather.ui
 import android.Manifest
 import android.app.TimePickerDialog
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
@@ -14,10 +17,14 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.bratik.clockweather.BuildConfig
 import com.bratik.clockweather.R
 import com.bratik.clockweather.data.OpenMeteo
 import com.bratik.clockweather.data.Place
 import com.bratik.clockweather.data.Prefs
+import com.bratik.clockweather.data.ReleaseInfo
+import com.bratik.clockweather.data.UpdateChecker
+import com.bratik.clockweather.data.UpdateResult
 import com.bratik.clockweather.databinding.ActivitySettingsBinding
 import com.bratik.clockweather.notify.WeatherScheduler
 import com.bratik.clockweather.util.Format
@@ -29,6 +36,8 @@ class SettingsActivity : AppCompatActivity() {
 
     private lateinit var b: ActivitySettingsBinding
     private lateinit var prefs: Prefs
+    private var pendingUpdate: ReleaseInfo? = null
+    private var checkingUpdates = false
 
     private val notifyPermission = registerForActivityResult(
         ActivityResultContracts.RequestPermission(),
@@ -58,6 +67,7 @@ class SettingsActivity : AppCompatActivity() {
         bindAlerts()
         bindQuietHours()
         bindAntiSpam()
+        bindUpdates()
 
         b.cityEdit.setText(prefs.cityName)
         b.searchBtn.setOnClickListener { searchCity() }
@@ -257,6 +267,61 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     // ---------- РїСЂРѕС‡РµРµ ----------
+
+    // ---------- app updates ----------
+
+    private fun bindUpdates() {
+        b.appVersion.text = "Версия " + BuildConfig.VERSION_NAME
+        b.updateCheckBtn.setOnClickListener { checkUpdates(manual = true) }
+        b.updateDownloadBtn.setOnClickListener { openRelease() }
+        b.updateDownloadBtn.visibility = View.GONE
+
+        val stale = System.currentTimeMillis() - prefs.lastUpdateCheckAt > 24 * 3_600_000L
+        if (stale) checkUpdates(manual = false)
+    }
+
+    private fun checkUpdates(manual: Boolean) {
+        if (checkingUpdates) return
+        checkingUpdates = true
+        if (manual) {
+            b.updateStatus.text = "Проверяю GitHub…"
+            b.updateCheckBtn.isEnabled = false
+        }
+        lifecycleScope.launch {
+            val result = UpdateChecker.check(BuildConfig.VERSION_NAME)
+            prefs.lastUpdateCheckAt = System.currentTimeMillis()
+            when (result) {
+                is UpdateResult.Available -> {
+                    pendingUpdate = result.info
+                    b.updateStatus.text =
+                        "Доступна версия ${result.info.version} — нажмите «Скачать обновление»"
+                    b.updateDownloadBtn.visibility = View.VISIBLE
+                    b.updateDownloadBtn.text = "Скачать ${result.info.version}"
+                }
+                UpdateResult.UpToDate -> {
+                    pendingUpdate = null
+                    b.updateStatus.text = "Установлена последняя версия"
+                    b.updateDownloadBtn.visibility = View.GONE
+                }
+                is UpdateResult.Failed -> {
+                    if (manual) {
+                        b.updateStatus.text = "Не удалось проверить: ${result.message}"
+                    }
+                }
+            }
+            checkingUpdates = false
+            b.updateCheckBtn.isEnabled = true
+        }
+    }
+
+    private fun openRelease() {
+        val url = pendingUpdate?.apkUrl ?: UpdateChecker.releasesPage()
+        try {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+        } catch (e: Exception) {
+            toast("Не удалось открыть ссылку")
+        }
+    }
 
     private fun pushWidgets() {
         WidgetRender.updateAll(this)

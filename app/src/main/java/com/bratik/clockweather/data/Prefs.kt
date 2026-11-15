@@ -97,6 +97,11 @@ class Prefs private constructor(context: Context) {
         get() = sp.getString(K_CACHE, null) ?: ""
         set(v) = edit { putString(K_CACHE, v) }
 
+    /** Когда последний раз проверяли обновления приложения, мс. */
+    var lastUpdateCheckAt: Long
+        get() = sp.getLong(K_LAST_CHECK, 0L)
+        set(v) = edit { putLong(K_LAST_CHECK, v) }
+
     fun alertConfig(): AlertConfig = AlertConfig(
         enabled = alertsEnabled,
         rainProbThreshold = rainProbThreshold,
@@ -125,6 +130,7 @@ class Prefs private constructor(context: Context) {
         private const val K_LAST_ALERT = "last_alert_at"
         private const val K_LAST_UPDATE = "last_update_at"
         private const val K_CACHE = "cached_weather"
+        private const val K_LAST_CHECK = "last_update_check_at"
 
         @Volatile
         private var instance: Prefs? = null
