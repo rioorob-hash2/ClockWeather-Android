@@ -105,8 +105,18 @@ def main():
     if st != 201:
         sys.exit(f"tree fail: {st} {tree}")
 
+    # Сообщение берём из последнего локального коммита (раньше было захардкожено «1.4»).
+    try:
+        msg = subprocess.run(["git", "log", "-1", "--pretty=%B"], capture_output=True,
+                             text=True, encoding="utf-8", cwd=os.path.dirname(os.path.dirname(
+                                 os.path.abspath(__file__)))).stdout.strip()
+    except Exception:
+        msg = ""
+    if not msg:
+        msg = "ClockWeather: обновление исходников"
+
     st, commit = call("POST", f"/repos/{OWNER}/{REPO}/git/commits", {
-        "message": "ClockWeather 1.4: виджеты часы+погода (2x1, 4x1, 4x2, 4x3), Open-Meteo, прогноз 5/7 дней, экран погоды",
+        "message": msg,
         "tree": tree["sha"],
         "parents": [parent],
     })
