@@ -56,7 +56,7 @@
             android:shadowRadius="2"
             android:text="20:57"
             android:textColor="@color/text_primary"
-            android:textSize="68sp" />
+            android:textSize="84sp" />
 
         <TextView
             android:id="@+id/date"
