@@ -159,7 +159,7 @@ object WidgetRender {
             0
         }
         val widthPx = ((if (widthDp in 120..1200) widthDp else 320) * density).toInt()
-        val heightPx = (104 * density).toInt()
+        val heightPx = (78 * density).toInt()
         val bmp = ForecastStrip.render(context, snapshot, fahrenheit, widthPx, heightPx)
         if (bmp != null) {
             rv.setImageViewBitmap(R.id.forecast, bmp)

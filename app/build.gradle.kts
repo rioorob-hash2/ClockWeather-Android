@@ -13,8 +13,8 @@ android {
         applicationId = "com.bratik.clockweather"
         minSdk = 32
         targetSdk = 36
-        versionCode = 4
-        versionName = "1.7"
+        versionCode = 5
+        versionName = "1.8"
     }
 
     val keystoreFile = rootProject.file("keystore.jks")

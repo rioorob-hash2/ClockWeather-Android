@@ -25,9 +25,9 @@ object ForecastStrip {
 
     private const val COLUMNS = 5
 
-    private const val DAY_TEXT_SP = 12.5f
-    private const val RANGE_TEXT_SP = 12.5f
-    private const val ICON_DP = 54f
+    private const val DAY_TEXT_SP = 12f
+    private const val RANGE_TEXT_SP = 11.5f
+    private const val ICON_DP = 46f
 
     fun render(
         context: Context,
