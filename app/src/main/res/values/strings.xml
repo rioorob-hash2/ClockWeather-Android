@@ -16,9 +16,9 @@
     <string name="label_transparency">Непрозрачность подложки</string>
     <string name="label_sensors">Батарея / RAM / устройство (4×2)</string>
     <string name="label_alerts">Уведомления о дожде и снеге</string>
-    <string name="label_rain_threshold">Порог дождя, %</string>
-    <string name="label_snow_threshold">Порог снегопада, мм/ч</string>
-    <string name="label_snow_prob">Порог снега при t≤0, %</string>
+    <string name="label_rain_threshold">Вероятность дождя, %</string>
+    <string name="label_snow_threshold">Интенсивность снега, мм/ч</string>
+    <string name="label_snow_prob">Вероятность снега при t≤0, %</string>
     <string name="label_quiet">Тихие часы</string>
     <string name="label_antispam">Антиспам, часы</string>
     <string name="action_refresh">Обновить сейчас</string>
