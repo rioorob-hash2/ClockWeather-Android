@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:paddingStart="16dp"
         android:paddingEnd="14dp"
-        android:paddingTop="8dp"
+        android:paddingTop="4dp"
         android:paddingBottom="8dp">
 
         <TextView
@@ -56,7 +56,7 @@
             android:shadowRadius="2"
             android:text="20:57"
             android:textColor="@color/text_primary"
-            android:textSize="84sp" />
+            android:textSize="90sp" />
 
         <TextView
             android:id="@+id/date"
@@ -75,7 +75,7 @@
             android:shadowRadius="2"
             android:text="сб, 14 ноября"
             android:textColor="@color/text_secondary"
-            android:textSize="13sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/today_pop"
@@ -94,7 +94,7 @@
             android:shadowRadius="2"
             android:text="Осадки сегодня 53%"
             android:textColor="@color/text_secondary"
-            android:textSize="12sp" />
+            android:textSize="14sp" />
 
         <ImageView
             android:id="@+id/icon"
@@ -139,7 +139,7 @@
             android:shadowRadius="2"
             android:text="6° / 2°"
             android:textColor="@color/text_secondary"
-            android:textSize="12sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/desc"
@@ -159,7 +159,7 @@
             android:shadowRadius="2"
             android:text="Переменная облачность"
             android:textColor="@color/text_secondary"
-            android:textSize="11sp" />
+            android:textSize="13sp" />
 
         <ImageView
             android:id="@+id/forecast_divider"
@@ -174,7 +174,7 @@
         <ImageView
             android:id="@+id/forecast"
             android:layout_width="match_parent"
-            android:layout_height="78dp"
+            android:layout_height="84dp"
             android:layout_alignParentBottom="true"
             android:contentDescription="@null"
             android:scaleType="fitXY" />
